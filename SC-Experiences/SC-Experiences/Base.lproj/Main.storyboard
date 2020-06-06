@@ -49,11 +49,58 @@
         <!--Experiences-->
         <scene sceneID="5T0-n5-p5v">
             <objects>
-                <viewController id="IUi-ge-KRG" sceneMemberID="viewController">
+                <viewController id="IUi-ge-KRG" customClass="ExperienceViewController" customModule="SC_Experiences" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zm8-gg-avk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-dq-E4r">
+                                <rect key="frame" x="20" y="158" width="374" height="374"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7jj-dq-E4r" secondAttribute="height" multiplier="1:1" id="CYG-fS-Bfy"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fv-9G-gla">
+                                <rect key="frame" x="8" y="308" width="398" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Add a New Image"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rJl-fD-zKW">
+                                <rect key="frame" x="8" y="552" width="398" height="68"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hri-he-PrK">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="30"/>
+                                        <state key="normal" title="Record Audio">
+                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT2-OT-zVO">
+                                        <rect key="frame" x="0.0" y="38" width="398" height="30"/>
+                                        <state key="normal" title="Play Recorded Audio"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lfT-AW-5JR">
+                                <rect key="frame" x="8" y="116" width="398" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7jj-dq-E4r" firstAttribute="top" secondItem="cqq-lS-YIu" secondAttribute="top" constant="50" id="0f6-Ll-F5T"/>
+                            <constraint firstItem="cqq-lS-YIu" firstAttribute="trailing" secondItem="lfT-AW-5JR" secondAttribute="trailing" constant="8" id="4zh-GI-hT1"/>
+                            <constraint firstItem="7fv-9G-gla" firstAttribute="leading" secondItem="cqq-lS-YIu" secondAttribute="leading" constant="8" id="9Bx-yC-Q0m"/>
+                            <constraint firstItem="cqq-lS-YIu" firstAttribute="trailing" secondItem="7jj-dq-E4r" secondAttribute="trailing" constant="20" id="KzG-eM-QZq"/>
+                            <constraint firstItem="rJl-fD-zKW" firstAttribute="top" secondItem="7jj-dq-E4r" secondAttribute="bottom" constant="20" id="NhI-5b-BWC"/>
+                            <constraint firstItem="lfT-AW-5JR" firstAttribute="leading" secondItem="cqq-lS-YIu" secondAttribute="leading" constant="8" id="RQQ-oy-nez"/>
+                            <constraint firstItem="lfT-AW-5JR" firstAttribute="top" secondItem="cqq-lS-YIu" secondAttribute="top" constant="8" id="VYg-JW-CFn"/>
+                            <constraint firstItem="cqq-lS-YIu" firstAttribute="trailing" secondItem="7fv-9G-gla" secondAttribute="trailing" constant="8" id="baN-zv-0I8"/>
+                            <constraint firstItem="rJl-fD-zKW" firstAttribute="leading" secondItem="cqq-lS-YIu" secondAttribute="leading" constant="8" id="e7y-dD-g8x"/>
+                            <constraint firstItem="7jj-dq-E4r" firstAttribute="leading" secondItem="cqq-lS-YIu" secondAttribute="leading" constant="20" id="nCW-FU-QLh"/>
+                            <constraint firstItem="7fv-9G-gla" firstAttribute="top" secondItem="cqq-lS-YIu" secondAttribute="top" constant="200" id="rVE-Fg-jkA"/>
+                            <constraint firstItem="cqq-lS-YIu" firstAttribute="trailing" secondItem="rJl-fD-zKW" secondAttribute="trailing" constant="8" id="wY3-Hc-7IY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cqq-lS-YIu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Experiences" id="3KA-so-Li8">
@@ -63,6 +110,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="playRecordingButton" destination="LT2-OT-zVO" id="6VT-4q-LWi"/>
+                        <outlet property="posterImageButton" destination="7fv-9G-gla" id="75l-Uc-Lti"/>
+                        <outlet property="posterImageView" destination="7jj-dq-E4r" id="HpZ-3T-E84"/>
+                        <outlet property="recordAudioButton" destination="hri-he-PrK" id="GMQ-8n-R70"/>
+                        <outlet property="titleTextField" destination="lfT-AW-5JR" id="KUC-mb-kfT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1I-ei-6DK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
