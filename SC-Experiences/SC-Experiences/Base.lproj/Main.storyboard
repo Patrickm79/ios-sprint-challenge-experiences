@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="YP9-b1-FJJ">
+            <objects>
+                <viewController id="9vo-o9-q2K" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cfm-dh-U6X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="M6h-ub-720">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkL-Lw-uNu">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem image="plus.bubble.fill" catalog="system" id="fss-Fo-BRY">
+                                        <connections>
+                                            <segue destination="osi-7W-4Mr" kind="show" id="AnK-Ni-xt5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="M6h-ub-720" firstAttribute="leading" secondItem="Nlw-oE-R8C" secondAttribute="leading" id="8aF-fh-DYG"/>
+                            <constraint firstItem="M6h-ub-720" firstAttribute="top" secondItem="Nlw-oE-R8C" secondAttribute="top" id="FUJ-qJ-PdL"/>
+                            <constraint firstItem="wkL-Lw-uNu" firstAttribute="bottom" secondItem="Nlw-oE-R8C" secondAttribute="bottom" id="IoH-SH-liB"/>
+                            <constraint firstItem="Nlw-oE-R8C" firstAttribute="trailing" secondItem="M6h-ub-720" secondAttribute="trailing" id="Oms-gJ-zzK"/>
+                            <constraint firstItem="wkL-Lw-uNu" firstAttribute="leading" secondItem="Nlw-oE-R8C" secondAttribute="leading" id="c77-di-3V3"/>
+                            <constraint firstAttribute="trailing" secondItem="wkL-Lw-uNu" secondAttribute="trailing" id="vdo-qZ-YUO"/>
+                            <constraint firstItem="wkL-Lw-uNu" firstAttribute="top" secondItem="M6h-ub-720" secondAttribute="bottom" id="wbG-BC-Ewe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nlw-oE-R8C"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hs-lW-sgi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162.31884057971016" y="280.58035714285711"/>
+        </scene>
+        <!--Experiences-->
+        <scene sceneID="5T0-n5-p5v">
+            <objects>
+                <viewController id="IUi-ge-KRG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zm8-gg-avk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="cqq-lS-YIu"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Experiences" id="3KA-so-Li8">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="video.fill" catalog="system" id="BXD-Pr-osd">
+                            <connections>
+                                <segue destination="trl-cH-kCr" kind="show" id="Hkd-dp-aCS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B1I-ei-6DK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575.36231884058" y="67.633928571428569"/>
+        </scene>
+        <!--Record Video-->
+        <scene sceneID="klX-OL-44e">
+            <objects>
+                <viewController id="trl-cH-kCr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zok-1c-Koz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="uY6-iF-98x"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Record Video" id="RxA-fm-Ywk">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="LNT-A4-yvX"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eqj-bi-VAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3479" y="69"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DiJ-z0-Vl4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="osi-7W-4Mr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="pgo-4x-MVZ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="AV6-9d-sir">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IUi-ge-KRG" kind="relationship" relationship="rootViewController" id="z0M-Vl-ihK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5T4-Y2-xhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1663.7681159420292" y="67.633928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="video.fill" catalog="system" width="128" height="82"/>
+    </resources>
+</document>
