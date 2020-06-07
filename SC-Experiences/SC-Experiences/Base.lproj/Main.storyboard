@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9vo-o9-q2K">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="YP9-b1-FJJ">
             <objects>
-                <viewController id="9vo-o9-q2K" sceneMemberID="viewController">
+                <viewController id="9vo-o9-q2K" customClass="MapViewController" customModule="SC_Experiences" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cfm-dh-U6X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <items>
                                     <barButtonItem image="plus.bubble.fill" catalog="system" id="fss-Fo-BRY">
                                         <connections>
-                                            <segue destination="osi-7W-4Mr" kind="show" id="AnK-Ni-xt5"/>
+                                            <segue destination="osi-7W-4Mr" kind="show" identifier="RecordExperience" id="AnK-Ni-xt5"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -41,6 +41,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nlw-oE-R8C"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="M6h-ub-720" id="PgE-Ag-YP4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hs-lW-sgi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,6 +67,9 @@
                                 <rect key="frame" x="8" y="308" width="398" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Add a New Image"/>
+                                <connections>
+                                    <action selector="addPosterImage:" destination="IUi-ge-KRG" eventType="touchUpInside" id="lwP-m6-j1t"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rJl-fD-zKW">
                                 <rect key="frame" x="8" y="552" width="398" height="68"/>
@@ -73,10 +79,16 @@
                                         <state key="normal" title="Record Audio">
                                             <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="recordAudio:" destination="IUi-ge-KRG" eventType="touchUpInside" id="abv-jn-6qg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT2-OT-zVO">
                                         <rect key="frame" x="0.0" y="38" width="398" height="30"/>
                                         <state key="normal" title="Play Recorded Audio"/>
+                                        <connections>
+                                            <action selector="playAudioRecording:" destination="IUi-ge-KRG" eventType="touchUpInside" id="k7k-WX-4It"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -104,17 +116,23 @@
                         <viewLayoutGuide key="safeArea" id="cqq-lS-YIu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Experiences" id="3KA-so-Li8">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="video.fill" catalog="system" id="BXD-Pr-osd">
-                            <connections>
-                                <segue destination="trl-cH-kCr" kind="show" id="Hkd-dp-aCS"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Save+Exit" id="SXs-l7-4O3">
+                                <connections>
+                                    <action selector="saveExperience:" destination="IUi-ge-KRG" id="qmK-jx-X8i"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="video.fill" catalog="system" id="BXD-Pr-osd">
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="playRecordingButton" destination="LT2-OT-zVO" id="6VT-4q-LWi"/>
                         <outlet property="posterImageButton" destination="7fv-9G-gla" id="75l-Uc-Lti"/>
                         <outlet property="posterImageView" destination="7jj-dq-E4r" id="HpZ-3T-E84"/>
                         <outlet property="recordAudioButton" destination="hri-he-PrK" id="GMQ-8n-R70"/>
+                        <outlet property="recordVideoButton" destination="BXD-Pr-osd" id="nfV-Q4-wra"/>
                         <outlet property="titleTextField" destination="lfT-AW-5JR" id="KUC-mb-kfT"/>
                     </connections>
                 </viewController>
@@ -125,11 +143,35 @@
         <!--Record Video-->
         <scene sceneID="klX-OL-44e">
             <objects>
-                <viewController id="trl-cH-kCr" sceneMemberID="viewController">
+                <viewController id="trl-cH-kCr" customClass="VideoViewController" customModule="SC_Experiences" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zok-1c-Koz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ViZ-vU-GXm" customClass="CameraPreviewView" customModule="SC_Experiences" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6OS-jj-dVS">
+                                        <rect key="frame" x="158" y="694" width="170" height="116"/>
+                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button" image="Record"/>
+                                        <state key="selected" image="Stop"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="6OS-jj-dVS" firstAttribute="centerX" secondItem="ViZ-vU-GXm" secondAttribute="centerX" constant="36" id="NzQ-KF-Awl"/>
+                                    <constraint firstAttribute="bottom" secondItem="6OS-jj-dVS" secondAttribute="bottom" constant="8" id="OAK-aG-V2Q"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uY6-iF-98x" firstAttribute="trailing" secondItem="ViZ-vU-GXm" secondAttribute="trailing" id="UWo-Qu-qIY"/>
+                            <constraint firstItem="uY6-iF-98x" firstAttribute="bottom" secondItem="ViZ-vU-GXm" secondAttribute="bottom" id="Yjz-gy-RjI"/>
+                            <constraint firstItem="ViZ-vU-GXm" firstAttribute="leading" secondItem="uY6-iF-98x" secondAttribute="leading" id="dLk-gP-fbt"/>
+                            <constraint firstItem="ViZ-vU-GXm" firstAttribute="top" secondItem="uY6-iF-98x" secondAttribute="top" id="uVZ-0u-LWg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uY6-iF-98x"/>
                     </view>
                     <navigationItem key="navigationItem" title="Record Video" id="RxA-fm-Ywk">
@@ -161,6 +203,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Record" width="116" height="116"/>
+        <image name="Stop" width="116" height="116"/>
         <image name="plus.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="video.fill" catalog="system" width="128" height="82"/>
     </resources>

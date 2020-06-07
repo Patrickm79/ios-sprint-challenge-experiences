@@ -13,6 +13,14 @@
 		DB85DAFA248C0FDF0049D1A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB85DAF9248C0FDF0049D1A0 /* Assets.xcassets */; };
 		DB85DAFD248C0FDF0049D1A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB85DAFB248C0FDF0049D1A0 /* LaunchScreen.storyboard */; };
 		DB85DB0A248C5FF90049D1A0 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85DB09248C5FF90049D1A0 /* ExperienceViewController.swift */; };
+		DB85DB0C248C61D80049D1A0 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85DB0B248C61D80049D1A0 /* CameraPreviewView.swift */; };
+		DB85DB0E248C63570049D1A0 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85DB0D248C63570049D1A0 /* VideoViewController.swift */; };
+		DB85DB10248C63E70049D1A0 /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85DB0F248C63E70049D1A0 /* Experience.swift */; };
+		DB85DB12248C66B70049D1A0 /* Experience+AudioConformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85DB11248C66B70049D1A0 /* Experience+AudioConformance.swift */; };
+		DB85DB14248C67480049D1A0 /* Experience+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85DB13248C67480049D1A0 /* Experience+Image.swift */; };
+		DB85DB16248C67F40049D1A0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85DB15248C67F40049D1A0 /* MapViewController.swift */; };
+		DB85DB18248C68240049D1A0 /* ExperienceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85DB17248C68240049D1A0 /* ExperienceController.swift */; };
+		DB85DB1A248C68580049D1A0 /* Experience+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85DB19248C68580049D1A0 /* Experience+Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		DB85DAFC248C0FDF0049D1A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB85DAFE248C0FDF0049D1A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB85DB09248C5FF90049D1A0 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
+		DB85DB0B248C61D80049D1A0 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		DB85DB0D248C63570049D1A0 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		DB85DB0F248C63E70049D1A0 /* Experience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experience.swift; sourceTree = "<group>"; };
+		DB85DB11248C66B70049D1A0 /* Experience+AudioConformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Experience+AudioConformance.swift"; sourceTree = "<group>"; };
+		DB85DB13248C67480049D1A0 /* Experience+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Experience+Image.swift"; sourceTree = "<group>"; };
+		DB85DB15248C67F40049D1A0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DB85DB17248C68240049D1A0 /* ExperienceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceController.swift; sourceTree = "<group>"; };
+		DB85DB19248C68580049D1A0 /* Experience+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Experience+Location.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +97,7 @@
 		DB85DB05248C11F10049D1A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB85DB0F248C63E70049D1A0 /* Experience.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -89,6 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				DB85DB09248C5FF90049D1A0 /* ExperienceViewController.swift */,
+				DB85DB0D248C63570049D1A0 /* VideoViewController.swift */,
+				DB85DB11248C66B70049D1A0 /* Experience+AudioConformance.swift */,
+				DB85DB13248C67480049D1A0 /* Experience+Image.swift */,
+				DB85DB15248C67F40049D1A0 /* MapViewController.swift */,
+				DB85DB19248C68580049D1A0 /* Experience+Location.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -96,6 +118,7 @@
 		DB85DB07248C12070049D1A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DB85DB0B248C61D80049D1A0 /* CameraPreviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -103,6 +126,7 @@
 		DB85DB08248C120D0049D1A0 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB85DB17248C68240049D1A0 /* ExperienceController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -178,9 +202,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB85DB12248C66B70049D1A0 /* Experience+AudioConformance.swift in Sources */,
+				DB85DB0C248C61D80049D1A0 /* CameraPreviewView.swift in Sources */,
+				DB85DB1A248C68580049D1A0 /* Experience+Location.swift in Sources */,
 				DB85DB0A248C5FF90049D1A0 /* ExperienceViewController.swift in Sources */,
 				DB85DAF1248C0FDC0049D1A0 /* AppDelegate.swift in Sources */,
+				DB85DB16248C67F40049D1A0 /* MapViewController.swift in Sources */,
+				DB85DB10248C63E70049D1A0 /* Experience.swift in Sources */,
+				DB85DB0E248C63570049D1A0 /* VideoViewController.swift in Sources */,
 				DB85DAF3248C0FDC0049D1A0 /* SceneDelegate.swift in Sources */,
+				DB85DB14248C67480049D1A0 /* Experience+Image.swift in Sources */,
+				DB85DB18248C68240049D1A0 /* ExperienceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
