@@ -10,12 +10,10 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    
+    var experienceController = ExperienceController()
+    
+       @IBOutlet weak var mapView: MKMapView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,9 +43,4 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             destinationVC.experienceController = experienceController
         }
     }
-    
-    var experienceController = ExperienceController()
- 
-    @IBOutlet weak var mapView: MKMapView!
-    
 }

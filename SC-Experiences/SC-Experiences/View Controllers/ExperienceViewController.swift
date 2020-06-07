@@ -58,6 +58,7 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate {
         
         if let title = titleTextField.text,
             let image = originalImage,
+            //TODO: Maybe see if this needs to be set in the location manager
             let coordinates = locationManager.location?.coordinate {
             let newExperience = experienceController.createExperienceWith(title: title, image: image, coordinate: coordinates, id: id)
             experienceController.saveExperience(newExperience)

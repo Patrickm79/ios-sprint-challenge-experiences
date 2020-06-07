@@ -16,7 +16,7 @@ extension ExperienceViewController: AVAudioRecorderDelegate, AVAudioPlayerDelega
     var isRecording: Bool { return recorder?.isRecording ?? false }
     
     func recordAudio() {
-        do { updateViewButtons() }
+        updateViewButtons()
         
         guard !isRecording else {
             recorder?.stop()
@@ -39,7 +39,7 @@ extension ExperienceViewController: AVAudioRecorderDelegate, AVAudioPlayerDelega
     }
     
     func playAudio() {
-        do { updateViewButtons() }
+        updateViewButtons()
         guard let url = recordingURL else {
             return
         }
