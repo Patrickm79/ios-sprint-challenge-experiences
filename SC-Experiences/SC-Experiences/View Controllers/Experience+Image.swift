@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 extension ExperienceViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -50,5 +51,11 @@ extension ExperienceViewController: UIImagePickerControllerDelegate, UINavigatio
         
         picker.dismiss(animated: true, completion: nil)
         posterImageButton.setTitle("", for: .normal)
+    }
+    
+    private func filterImage(image: UIImage) {
+        guard let image = originalImage else { return }
+        
+        
     }
 }
