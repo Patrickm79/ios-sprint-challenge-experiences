@@ -24,6 +24,7 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate {
     var recordingURL: URL?
     var experience: Experience?
     var originalImage: UIImage?
+    var updatedCoordinates: CLLocationCoordinate2D?
     
     @IBOutlet weak var recordVideoButton: UIBarButtonItem!
     @IBOutlet weak var titleTextField: UITextField!
@@ -58,8 +59,9 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate {
         
         if let title = titleTextField.text,
             let image = originalImage,
+            let coordinates = updatedCoordinates
             //TODO: Maybe see if this needs to be set in the location manager
-            let coordinates = locationManager.location?.coordinate {
+            {
             let newExperience = experienceController.createExperienceWith(title: title, image: image, coordinate: coordinates, id: id)
             experienceController.saveExperience(newExperience)
             locationManager.stopUpdatingLocation()

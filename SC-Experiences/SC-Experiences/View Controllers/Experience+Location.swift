@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 extension ExperienceViewController: CLLocationManagerDelegate {
-    
+        
     func setUpLocations() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
@@ -33,6 +33,13 @@ extension ExperienceViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+       
+        guard locations.first?.coordinate != nil else {
+            print("No locations found")
+            return
+        }
+        
+        updatedCoordinates = locations.first?.coordinate
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
