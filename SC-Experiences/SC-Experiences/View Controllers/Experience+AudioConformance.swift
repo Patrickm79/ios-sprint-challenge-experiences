@@ -29,18 +29,18 @@ extension ExperienceViewController: AVAudioRecorderDelegate, AVAudioPlayerDelega
             recorder?.prepareToRecord()
             recorder?.delegate = self
             recorder?.record()
-            recordCount += 1
         } catch {
             let alertController = UIAlertController(title: "Error recording audio", message: "Please try again!", preferredStyle: .alert)
             let cancelAlert = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(cancelAlert)
             self.present(alertController, animated: true, completion: nil)
         }
+        print("Starting recording")
     }
     
     func playAudio() {
         updateViewButtons()
-        guard let url = recordingURL else {
+        guard let url = ExperienceViewController.recordingURL else {
             return
         }
         
@@ -63,10 +63,10 @@ extension ExperienceViewController: AVAudioRecorderDelegate, AVAudioPlayerDelega
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        recordingURL = recorder.url
+        ExperienceViewController.recordingURL = recorder.url
         updateViewButtons()
         self.recorder = nil
-        recordCount += 1
+        print("Finished recording")
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -75,18 +75,15 @@ extension ExperienceViewController: AVAudioRecorderDelegate, AVAudioPlayerDelega
     }
     
     private func newRecordingURL() -> URL {
-        let fm = FileManager.default
-        let documentsDir = try! fm.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
-        return documentsDir.appendingPathComponent(id).appendingPathExtension("caf")
+        return documents.appendingPathComponent(id).appendingPathExtension("caf")
     }
     
     func updateViewButtons() {
                 
         let playButtonTitle = isPlaying ? "Stop Playing" : "Play"
-        var recordButtonTitle = isRecording ? "Stop Recording" : "Record"
-        if recordCount == 1 { recordButtonTitle = "Stop Recording" }
-        if recordCount == 2 { recordButtonTitle = "Record" }
+        let recordButtonTitle = isRecording ? "Stop Recording" : "Record"
         
         playRecordingButton.setTitle(playButtonTitle, for: .normal)
         recordAudioButton.setTitle(recordButtonTitle, for: .normal)

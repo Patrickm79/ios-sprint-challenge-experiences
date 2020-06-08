@@ -17,11 +17,10 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate {
     let locationManager = CLLocationManager()
     let context = CIContext(options: nil)
     var id: String!
-    var recordCount = 0
     var audioHasBeenRecorded = false
     var recorder: AVAudioRecorder?
     var player: AVAudioPlayer?
-    var recordingURL: URL?
+    static var recordingURL: URL?
     var experience: Experience?
     var originalImage: UIImage?
     var updatedCoordinates: CLLocationCoordinate2D?

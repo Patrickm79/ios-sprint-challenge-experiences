@@ -9,14 +9,15 @@
 import UIKit
 import AVFoundation
 
-
 class ExperienceDetailView: UIView {
     
     var experience: Experience? {
         didSet {
+            setUpButton()
             updateSubViews()
         }
     }
+    
     
     var player: AVAudioPlayer?
     
@@ -26,27 +27,29 @@ class ExperienceDetailView: UIView {
     private let playButton = UIButton()
     private let imageView = UIImageView()
     
-    @IBAction func playButtonTapped(sender: UIButton!) {
-        guard let audioURL = experience?.audioURL else { return }
-        playAudioFile(URL: audioURL)
+    
+    func setUpButton() {
+        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
     }
     
+    @objc func playButtonTapped() {
+        guard let url = experience?.audioURL else { return }
+        playAudioFile(url: url)
+    }
     
-    private func playAudioFile(URL: URL) {
+    private func playAudioFile(url: URL) {
         
-        guard let url = experience?.audioURL else {
-            return
-        }
         
         guard !isPlaying else {
             player?.stop()
             return
         }
-        
         do {
             player = try AVAudioPlayer(contentsOf: url)
+            print("\(url)")
             player?.delegate = self
             player?.play()
+            updateSubViews()
         } catch {
             fatalError("Error playing audio from popout")
         }
@@ -58,13 +61,15 @@ class ExperienceDetailView: UIView {
         
         titleLabel.setContentHuggingPriority(.defaultLow+1, for: .horizontal)
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.0).isActive = true
-
+        playButton.heightAnchor.constraint(equalTo: playButton.widthAnchor, multiplier: 0.2).isActive = true
+        playButton.backgroundColor = .systemBlue
         
-        let placeTitleAndPlayButton = UIStackView(arrangedSubviews: [titleLabel, playButton])
+        let placeTitleAndPlayButton = UIStackView(arrangedSubviews: [playButton])
+        placeTitleAndPlayButton.axis = .horizontal
         let imageViewStackView = UIStackView(arrangedSubviews: [imageView])
         
-        placeTitleAndPlayButton.spacing = UIStackView.spacingUseSystem
-        let mainStackView = UIStackView(arrangedSubviews: [placeTitleAndPlayButton, imageViewStackView])
+      placeTitleAndPlayButton.spacing = UIStackView.spacingUseSystem
+        let mainStackView = UIStackView(arrangedSubviews: [imageViewStackView, placeTitleAndPlayButton])
         mainStackView.axis = .vertical
         mainStackView.spacing = UIStackView.spacingUseSystem
         
@@ -74,21 +79,30 @@ class ExperienceDetailView: UIView {
         mainStackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         mainStackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        updateSubViews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+
     private func updateSubViews() {
         guard let experience = experience else { return }
         let title = experience.title
         titleLabel.text = title
         imageView.image = experience.image
+        if isPlaying {
+            playButton.setTitle("Pause", for: .normal)
+        } else {
+            playButton.setTitle("Play", for: .normal)
+        }
     }
 }
 
 extension ExperienceDetailView: AVAudioPlayerDelegate {
     
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        updateSubViews()
+    }
 }

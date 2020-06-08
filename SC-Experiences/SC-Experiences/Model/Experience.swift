@@ -26,7 +26,7 @@ class Experience: NSObject, MKAnnotation {
     var audioURL: URL {
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
-        let file = documents.appendingPathComponent("\(id)audio", isDirectory: false).appendingPathExtension("caf")
+        let file = documents.appendingPathComponent("\(id)", isDirectory: false).appendingPathExtension("caf")
         
         print("recording URL: \(file)")
         
