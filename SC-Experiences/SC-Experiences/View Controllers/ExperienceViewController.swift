@@ -13,7 +13,7 @@ import CoreLocation
 
 class ExperienceViewController: UIViewController, UITextFieldDelegate {
     
-    var experienceController = ExperienceController()
+    var experienceController: ExperienceController?
     let locationManager = CLLocationManager()
     let context = CIContext(options: nil)
     var id: String!
@@ -56,16 +56,15 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveExperience(_ sender: UIBarButtonItem!) {
+        guard let experienceController = experienceController else { return }
         
         if let title = titleTextField.text,
             let image = originalImage,
-            let coordinates = updatedCoordinates
+            let coordinates = updatedCoordinates {
             //TODO: Maybe see if this needs to be set in the location manager
-            {
             let newExperience = experienceController.createExperienceWith(title: title, image: image, coordinate: coordinates, id: id)
             experienceController.saveExperience(newExperience)
-            locationManager.stopUpdatingLocation()
-            navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

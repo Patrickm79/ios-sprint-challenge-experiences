@@ -68,5 +68,7 @@
 	<string>$(PRODUCT_NAME) needs access to your location to provide experience logging.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs to access your location for geotagging your post.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs to access your location for geotagging your post.</string>
 </dict>
 </plist>

@@ -21,9 +21,13 @@ extension ExperienceViewController: CLLocationManagerDelegate {
         
         case .notDetermined:
             
-            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
             
         case .authorizedWhenInUse:
+            
+            locationManager.requestLocation()
+            
+        case .authorizedAlways:
             
             locationManager.requestLocation()
             
@@ -39,7 +43,7 @@ extension ExperienceViewController: CLLocationManagerDelegate {
             return
         }
         
-        updatedCoordinates = locations.first?.coordinate
+        updatedCoordinates = locations.last?.coordinate
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

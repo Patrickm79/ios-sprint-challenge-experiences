@@ -15,10 +15,25 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
        @IBOutlet weak var mapView: MKMapView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         addExperienceAnnotations()
+        let coordinateSpan = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        var center = CLLocationCoordinate2D()
+        
+        if let UnwrappedCenter = experienceController.experiences.last?.coordinate {
+            center = UnwrappedCenter
+            
+        } else {
+            print("No coordinates found for region update")
+        }
+        
+        let region = MKCoordinateRegion(center: center, span: coordinateSpan)
+        self.mapView.setRegion(region, animated: true)
+        
     }
     
     func addExperienceAnnotations() {
